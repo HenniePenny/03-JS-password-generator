@@ -26,6 +26,7 @@ THEN the password is either displayed in an alert or written to the page
 
 
 ## Screenshot
+![Screenshot of password generator](/assets/pwgenerator-screenshot.JPG)
 
 ## Links
 - Deployment Link

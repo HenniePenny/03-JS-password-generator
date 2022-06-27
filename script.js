@@ -2,51 +2,35 @@
 //creates a variable for the id for generate pw button -- 
 var generateBtn = document.querySelector("#generate");
 
-//store the different options for character choices as strings in a constant
-let lengthOfPw = document.getElementsByClassName("length");
+//store the different options for character choices as arrays and store them all in one var?
 
-const lowerCase = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"
-const lowerCaseArray = lowerCase.split(",");
-
-const upperCase = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
-const upperCaseArray = upperCase.split(",");
-
-const numbers = "1,2,3,4,5,6,7,8,9,0"
-const numbersArray = numbers.split(",");
-
-const specialChar = "!,§,$,%,&,/,?,*,#,-,<,+,;,(,)"
-const specialCharArray = specialChar.split(",");
-
-//make functions for each character type to randomize selection for password
-const getRandomLC = function lowerCaseFunc() {
-  return Math.floor(Math.random() * lowerCaseArray.length);
-}
-console.log (getRandomLC);
-
-//store all separate pw character options in one single var for easier randomization
-
-
-//enable the "click" for the button (one time, enable the button, then disable again)
-//generateBtn.addEventListener("click", pwCriteria);
-document.addEventListener("click", pwFunction);
-
-
-
-
-//generateBtn.disabled = true;
-
-//start series of prompts referring to the pw criteria - 1 prompt for each criteria
-//function pwCriteria ()
+const lowerCaseOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const upperCaseOptions = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const numberOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+const specialCharOptions = ["!", "§", "$", "%", "&", "/", "?", "*", "#", "-", "<", "+", ";", "(", ")"];
 
 //1st prompt: length of pw 8-128 characters
-pwLength = document.getElementById("pwlength")
+/*make prompt for pw length and store the value in a let, make it a function to only allow numbers between 8 and 128; 
+if not entered, alert what the input needs to be;*/
+// TODO: make it a loop so that it starts a the beginning if the criteria are not met
+let lengthInput = prompt("Please choose your password length by entering a number between 8 and 128.");
 
-//make sure that at least one box is checked
+if (lengthInput < 8) {
+    alert ("Your password must be at least 8 characters long.");
+  } else if (lengthInput > 129) {
+      alert ("Your password can contain a maximum of 128 characters.");
+  } else{
+    alert ("Your password will contain " + lengthInput + " characters.");
+};
+  
+//make prompts for the character options
+
 //2nd prompt: lower case letters? + validation
 //3rd prompt: upper case letters? + validation
 //4th prompt: numbers? + validation
 //5th prompt: and/or special characters? + validation
 //choose at least one
+
 /*const lower = document.getElementById("lowerCheck").checked;
 const upper = document.getElementById("upperCheck").checked;
 const number = document.getElementById("numbersCheck").checked;
@@ -57,34 +41,19 @@ if (lower + upper + number + symbol === 0) {
   else   
     function doSomeThing()
     {
-        //do something -- include this in a div or something in the html
-        document.getElementById("displayText1").innerHTML = text1;
-        //do something
-        document.getElementById("displayText2").innerHTML = text2;
-        //do something
-        document.getElementById("displayText3").innerHTML = text3;
+        
     }
-    
-    //HTML ?
-    <span id="displayText1"></span>
-    <span id="displayText2"></span>
-    <span id="displayText3"></span>
 
+//make a function that checks the selected options, validate choice, include alert if none are selected ()
+//function pwCriteria ()
 
-
-
-  }
-  return;
+//make a function that includes all character types according to choice (if, else?)
+const getRandomLC = function lowerCaseFunc() {
+  return Math.floor(Math.random() * lowerCaseArray.length);
 }
 
-const lower =*/
-
-//after all prompts generate password
-
-//display pw (check the #aria-label)
-
-
-
+/*take that function and now generate random characters according to desired password length and chosen characters - for loop (within each loop create)
+a random character*/
 //function generatePassword
 
 //define var passwordText
