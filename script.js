@@ -82,17 +82,15 @@ const allowedCharacters = function() {
 
 //function generatePassword
 function generatePassword() {
-    for (var i = 0; i < getLength; i++) {
+  let passwordLength = getLength();
+  chosenCharacters = allowedCharacters();
+  let password = "";  
+  for (var i = 0; i < passwordLength; i++) {
      var randomNumber = Math.floor(Math.random() * chosenCharacters.length);
-     password = password * chosenCharacters[randomNumber];
+     password = /*password + */chosenCharacters[randomNumber];
     }
-    return password;
-  //let passwordCharacters = allowedCharacters();
-  //const getSelectedChar = allowedCharacters();
-  //const getSelectedChar = function allowedCharacters() {
-    
+    return result;   
 }
-
 
   //let lowerCaseIndex = Math.floor(Math.random() * lowerCaseOptions.length);
   //lowerCaseLetters = lowerCaseOptions[lowerCaseIndex];
@@ -106,8 +104,8 @@ a random character*/
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
 
   //text input value property
   passwordText.value = "password";
