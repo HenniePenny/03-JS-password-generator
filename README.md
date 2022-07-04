@@ -17,6 +17,10 @@ SO THAT I can create a strong password that provides greater security
 - WHEN all prompts are answered, THEN a password is generated that matches the selected criteria
 - WHEN the password is generated, THEN the password is either displayed in an alert or written to the page
 
+## Challenges
+- only use the chosen arrays for the password
+- refer to the correct array in the generate password function
+
 ## Screenshot
 ![Screenshot of password generator](/assets/03-javascript-homework-demo.png)
 

@@ -33,7 +33,7 @@ const getLength = function() {
 //creating a series of prompts to ask for the different components of password characters
 const allowedCharacters = function() {
   let lowerCaseLetters = confirm("Do you want to include lower case letters in your password? (e.g.: abcdef)");
-  if (lowerCaseLetters == true) {
+  if (lowerCaseLetters === true) {
     alert ("Your password will include lower case letters.");
   } else {
     alert ("Your password will not include lower case letters.");
@@ -43,33 +43,33 @@ const allowedCharacters = function() {
   }
     
   let upperCaseLetters = confirm("Do you want to include upper case letters in your password? (e.g.: ABCDEF)");
-  if (upperCaseLetters == true) {
+  if (upperCaseLetters === true) {
     alert ("Your password will upper case letters.");
   } else {
     alert ("Your password will not include upper case letters.");
   }
   if (upperCaseLetters) {
-    chosenCharacters = chosenCharacters.concat(upperCaseLetters);
+    chosenCharacters = chosenCharacters.concat(upperCaseOptions);
   }
 
   let numericCharacters = confirm("Do you want to include numbers in your password? (e.g. 123456)");
-  if (numericCharacters == true) {
+  if (numericCharacters === true) {
     alert ("Your password will include numbers.");
   } else {
     alert ("Your password will not include numbers.");
   }
   if (numericCharacters) {
-    chosenCharacters = chosenCharacters.concat(numericCharacters);
+    chosenCharacters = chosenCharacters.concat(numberOptions);
   }
 
   let specialCharacters = confirm("Do you want to include special characters in your password? (e.g. !?&%*#/)");
-  if (specialCharacters == true) {
+  if (specialCharacters === true) {
     alert ("Your password will include special characters.");
   } else {
     alert ("Your password will not include special characters.");
   };
   if (specialCharacters) {
-    chosenCharacters = chosenCharacters.concat(specialCharacters);
+    chosenCharacters = chosenCharacters.concat(specialCharOptions);
   }
 
   //if none of the above options are selected, give alert and start over
@@ -81,26 +81,20 @@ const allowedCharacters = function() {
 }
 
 //function generatePassword
+/*generate random characters according to desired password length and chosen characters - for loop (within each loop create)
+a random character*/
 function generatePassword() {
   let passwordLength = getLength();
-  chosenCharacters = allowedCharacters();
+  /*chosenCharacters =*/ allowedCharacters();
+  /*console.log("chosen characters = ", chosenCharacters);*/
   let password = "";  
   for (var i = 0; i < passwordLength; i++) {
      var randomNumber = Math.floor(Math.random() * chosenCharacters.length);
-     password = /*password + */chosenCharacters[randomNumber];
+     password += chosenCharacters[randomNumber]; 
     }
-    return result;   
+    console.log("password = ", password);
+    return password;   
 }
-
-  //let lowerCaseIndex = Math.floor(Math.random() * lowerCaseOptions.length);
-  //lowerCaseLetters = lowerCaseOptions[lowerCaseIndex];
-  //console.log(lowerCaseLetters);
-  
-/*take that function and now generate random characters according to desired password length and chosen characters - for loop (within each loop create)
-a random character*/
-
-
-
 
 // Write password to the #password input
 function writePassword() {
@@ -108,8 +102,7 @@ function writePassword() {
   let passwordText = document.querySelector("#password");
 
   //text input value property
-  passwordText.value = "password";
-  
+  passwordText.value = password;  
 }
 
 // Add event listener to generate button
